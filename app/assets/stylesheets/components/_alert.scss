@@ -6,10 +6,17 @@
   margin: 0;
   text-align: center;
   color: white;
+  background-color:white;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+}
+.notice {
+  margin: 0;
+  text-align: center;
+  color: #FF5661;
+  background-color:white;
 }

@@ -1,0 +1,92 @@
+
+<% if user_signed_in? %>
+  <% if current_user && current_user.profile %>
+
+      <% @profile = current_user.profile  %>
+      <% @bookings = Booking.where(profile_id: @profile.id) %>
+      <% @my_bookings = Booking.where(profile_id: @profile.id) %>
+      <% if @my_bookings != [] && @my_bookings.last.created_at.strftime("%m/%d/%Y") == Time.now.strftime("%m/%d/%Y")  %>
+      <% @current_booking = true  %>
+      <% end  %>
+  <% end  %>
+<% end  %>
+
+
+<section class="hero-wrap d-flex align-items-center " style="background-color: white; height: calc(100vh);">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="hero-title">
+                <h1>Where will you park tomorrow?</h1>
+                <h3>Find out the perfect parking lot to park your car where you work</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="hero-title">
+                      <% if @current_booking == true %>
+                        <%= link_to "Can't book twice 😞", root_path, disabled: true, class: 'btn btn-simple', style:"color: white; padding: 20px 46px; font-size: 18px;background: #ff6b6b; border-radius: 6px; margin: 100px 0px"  %>
+                      <% else  %>
+                        <%= link_to 'Search →', parkings_path, class: 'btn btn-simple', style:"color: white; padding: 20px 46px; font-size: 18px;background: #ff6b6b; border-radius: 6px; margin: 100px 0px" %>
+                      <% end  %>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="row d-flex justify-content-center">
+            <div class="hero-title demo" id="section10">
+
+
+  <a style="color: #7c7c7c;font-family: 'Roboto', sans-serif; font-size: 14px"><span></span>scroll down</a>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <div class="search-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="search-box2">
+                                    <div class="search-box-title" style="padding-top: 0px">
+                                        <label>Book your parking for tomorrow <%= Date.tomorrow.strftime('%m/%d/%Y')  %></label><br>
+                                        <p style="font-weight: 300; font-size: 18px; color: #484848;    margin-bottom: 0px;">As a reminder, the car park you are looking for is within BIL</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-search">
+                      <% if @current_booking == true %>
+                        <%= link_to "Can't book twice 😞", root_path, disabled: true, class: 'btn btn-simple', style:"opacity: 1;"  %>
+                      <% else  %>
+                        <%= link_to 'Search →', parkings_path, class: 'btn btn-simple' %>
+                      <% end  %>
+                    </div>
+                </form>
+                <p class="search-bottom-title">By using this website, you are agreeing to our  <span style="text-decoration: underline;">terms and conditions</span></p>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+
