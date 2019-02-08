@@ -1,25 +1,59 @@
-<h2>Sign up</h2>
+
+
+
+
+
+
+    <!--============================= MAIN TITLE =============================-->
+    <section class="hero-wrap d-flex align-items-center" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url('https://media.giphy.com/media/l378vMZ1IbLcmj3H2/giphy.gif');height: calc(100vh)">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="hero-title">
+                    <h1 style="color: white">Wanna bring the bank <br>from 🌱 to 🌳?</h1>
+                    <h3 style="color: white">Join us! We'll create awesome products during a 4 days event which will occur in May 2019</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+
+
+
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
+                    <form>
+                        <div class="search-box">
+                            <div class="row">
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true ,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+                                <div class="col-md-10">
+                                    <div class="search-box2">
+                                        <div class="search-box-title">
+                                            <label style="color: white">Your email and we'll keep you posted</label><br>
+                                            <!-- <input style="color: white" type="text" name="#" class="search-form" placeholder="Eg:  John.McClane@bil.com"> -->
+                                              <%= f.input :email, class:"form-control string email optional", type:"email", input_html: { style:"color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    border: none;
+    width: 64%;
+    background: none;" }, placeholder:"Eg:  John.McClane@bil.com", label: false%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-search" style="background-color: #4c6d4c">
+                              <%= f.button :submit, "Go →", style:"background-color: #4c6d4c", class:"btn btn-simple"  %>
+                        </div>
+                    </form>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+
 <% end %>
 
-<%= render "devise/shared/links" %>
+                    <p class="search-bottom-title">By using this website, you are agreeing to our <a href="#"> terms and conditions</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END MAIN TITLE -->
